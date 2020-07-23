@@ -87,7 +87,7 @@
 
       /* find the clickable trigger (the element that should react to clicking) */
 
-      const clickedButton = thisProduct.element.querySelector(select.menuProduct.clickable);
+      const clickedButton = thisProduct.element.querySelector('.product__header');
 
       /* START: click event listener to trigger */
 
@@ -107,8 +107,10 @@
 
           /* START: if the active product isn't the element of thisProduct */
           if (active != thisProduct.element) {
+
             /* remove class active for the active product */
             active.classList.remove(classNames.menuProduct.wrapperActive);
+            
             /* END: if the active product isn't the element of thisProduct */
           }
           /* END LOOP: for each active product */
