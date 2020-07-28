@@ -183,7 +183,7 @@
         thisProduct.processOrder();
       });
 
-      console.log(this.initOrderForm);
+      // console.log(this.initOrderForm);
     }
 
     processOrder() {
@@ -222,7 +222,7 @@
           }
 
           const optionImages = thisProduct.imageWrapper.querySelectorAll('.' + paramId + '-' + optionId);
-          console.log('optionImages:', optionImages);
+          // console.log('optionImages:', optionImages);
 
           if (optionSelected) {
             for (let optionImage of optionImages) {
@@ -261,8 +261,8 @@
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
 
-      console.log('AmountWidget:', thisWidget);
-      console.log('constructor arguments:', element);
+      // console.log('AmountWidget:', thisWidget);
+      // console.log('constructor arguments:', element);
     }
     getElements(element) {
       const thisWidget = this;
@@ -317,7 +317,7 @@
     initMenu: function () {
 
       const thisApp = this;
-      console.log('thisApp.data:', thisApp.data);
+      // console.log('thisApp.data:', thisApp.data);
 
       for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
