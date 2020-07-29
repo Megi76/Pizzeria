@@ -254,7 +254,7 @@
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = thisProduct.price;
 
-      console.log(thisProduct.params);
+      // console.log(thisProduct.params);
     }
 
     initAmountWidget() {
@@ -356,22 +356,27 @@
 
       thisCart.dom.wrapper = element;
 
-      thisCart.dom.toggleTrigger=thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+      thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+
+      thisCart.dom.productList = document.querySelector(select.cart.productList);
     }
 
     initActions() {
       const thisCart = this;
 
       thisCart.dom.toggleTrigger.addEventListener('click', function() {
-
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
     }
 
     add(menuProduct) {
-      // const thisCart = this;
+      const thisCart = this;
 
       console.log('adding product', menuProduct);
+
+      const generatedHTML = templates.cartProduct(menuProduct);
+      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+      thisCart.dom.productList.appendChild(generatedDOM);
     }
   }
 
