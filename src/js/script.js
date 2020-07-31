@@ -412,7 +412,7 @@
       for (let key of thisCart.renderTotalKeys) {
         for (let elem of thisCart.dom[key])[
           elem.innerHTML = thisCart[key]
-        ]
+        ];
       }
     }
 
@@ -420,6 +420,7 @@
       const thisCart = this;
 
       const index = thisCart.products.indexOf(cartProduct);
+
       thisCart.products.splice(index, 1);
       cartProduct.dom.wrapper.remove();
       thisCart.update();
