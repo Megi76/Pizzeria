@@ -358,8 +358,11 @@
       thisCart.dom.wrapper = element;
 
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
-
       thisCart.dom.productList = document.querySelector(select.cart.productList);
+      thisCart.renderTotalKeys = ['totalNumber', 'totalPrice', 'subtotalPrice', 'deliveryFee'];
+      for(let key of thisCart.renderTotalKeys){
+        thisCart.dom[key] = thisCart.dom.wrapper.querySelectorAll(select.cart[key]);
+      }
     }
 
     initActions() {
@@ -395,9 +398,14 @@
         thisCart.subtotalPrice += product.price;
         thisCart.totalNumber += product.amount;
       }
-
       thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
       console.log(thisCart.totalNumber, thisCart.subtotalPrice, thisCart.totalPrice);
+
+      for(let key of thisCart.renderTotalKeys){
+        for(let elem of thisCart.dom[key])[
+          elem.innerHTML = thisCart[key]
+        ]
+      }
     }
   }
 
