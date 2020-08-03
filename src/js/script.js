@@ -371,6 +371,10 @@
       for (let key of thisCart.renderTotalKeys) {
         thisCart.dom[key] = thisCart.dom.wrapper.querySelectorAll(select.cart[key]);
       }
+      thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.form);
+      thisCart.dom.telephone = thisCart.dom.wrapper.querySelector(select.cart.telephone);
+      thisCart.dom.address = thisCart.dom.wrapper.querySelector(select.cart.address);
+
     }
 
     initActions() {
@@ -384,6 +388,10 @@
       });
       thisCart.dom.productList.addEventListener('remove', function () {
         thisCart.remove(event.detail.cartProduct);
+      });
+      thisCart.dom.form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        thisCart.sendOrder();
       });
     }
 
@@ -431,6 +439,43 @@
       cartProduct.dom.wrapper.remove();
       thisCart.update();
     }
+
+    sendOrder() {
+      const thisCart = this;
+      const url = settings.db.url + '/' + settings.db.order;
+
+      const payload = {
+        address: thisCart.dom.address,
+        totalPrice: thisCart.totalPrice,
+        telephone: thisCart.dom.telephone,
+        totalNumber: thisCart.totalNumber,
+        subtotalPrice: thisCart.subtotalPrice,
+        deliveryFee: thisCart.deliveryFee,
+        products: [],
+      };
+
+      for (const orderedProduct of thisCart.products) {
+        orderedProduct.getData();
+        payload.products.push(orderedProduct.getData());
+      }
+
+
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      };
+
+      fetch(url, options)
+        .then(function (response) {
+          return response.json();
+        }).then(function (parsedResponse) {
+          console.log('parsedResponse', parsedResponse);
+        });
+    }
+
   }
 
   class CartProduct {
@@ -506,6 +551,19 @@
       });
 
     }
+
+    getData() {
+      const thisCartProduct = this;
+      const orderedProductData = {
+        id: thisCartProduct.id,
+        amount: thisCartProduct.amount,
+        price: thisCartProduct.price,
+        priceSingle: thisCartProduct.priceSingle,
+        params: thisCartProduct.params,
+      };
+      console.log('orderedProductData:', orderedProductData);
+      return orderedProductData;
+    }
   }
 
   const app = {
@@ -527,10 +585,10 @@
       const url = settings.db.url + '/' + settings.db.product;
 
       fetch(url)
-        .then(function(rawResponse){
+        .then(function (rawResponse) {
           return rawResponse.json();
         })
-        .then(function(parsedResponse){
+        .then(function (parsedResponse) {
           console.log('parsedResponse', parsedResponse);
 
           /* save parsedResponse as thisApp.data.products */
