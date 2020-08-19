@@ -76,7 +76,7 @@ class CartProduct {
 
   getData() {
     const thisCartProduct = this;
-    
+
     const orderedProductData = {
       id: thisCartProduct.id,
       amount: thisCartProduct.amount,

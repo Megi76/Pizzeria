@@ -2,7 +2,6 @@ import {settings, select} from '/js/settings.js';
 import Product from '/js/components/Product.js';
 import Cart from '/js/components/Cart.js';
 
-
 const app = {
   initMenu: function () {
 
