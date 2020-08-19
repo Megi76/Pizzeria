@@ -40,7 +40,7 @@
   @include flex(row, flex-start, flex-start);
   bottom: ($base-size * -8);
 
-   a {
+  a {
     @extend .h2;
     color: $color-main;
     text-decoration: none;
@@ -51,10 +51,10 @@
     border-top-left-radius: $radius;
     border-top-right-radius: $radius;
 
-     &.active {
+    &.active {
       background: lighten($color-dark, 75%);
     }
 
-   }
+  }
 
- }
+}
