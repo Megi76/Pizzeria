@@ -29,8 +29,7 @@ class HourPicker extends BaseWidget{
     });
   }
 
-  parseValue(){
-
+  parseValue(value){
     return utils.numberToHour(value);
   }
 
