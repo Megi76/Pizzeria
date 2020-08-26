@@ -9,6 +9,10 @@
 
 }
 
+.main-back {
+  text-decoration: none;
+}
+
 .logo {
   display: inline-block;
   line-height: 1;
@@ -19,6 +23,7 @@
     font-family: $font-header;
     font-weight: $font-light;
     text-transform: uppercase;
+    color: white;
 
     span {
       font-weight: $font-bold;
@@ -31,6 +36,8 @@
     font-size: ($base-size * 1.5);
     font-weight: $font-light;
     font-style: italic;
+    color: white;
+
   }
 
 }

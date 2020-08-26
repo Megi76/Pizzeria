@@ -29,8 +29,6 @@ class Main {
     console.log(linkToBooking);
     const linkToBookingId = linkToBooking.getAttribute('href').replace('#', '');
 
-    
-
     const pages = document.querySelector(select.containerOf.pages).children;
 
     linkToOrder.addEventListener('click', function(){
