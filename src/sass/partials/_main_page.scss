@@ -1,0 +1,197 @@
+// main navigation part
+
+.main-page{
+  margin: 50px 300px;
+  padding: 30px 100px;
+  background-color: white;
+}
+
+.navigation {
+  @include flex (row, center, center);
+  flex-wrap: wrap;
+
+  a {
+    @include flex (row, center, center);
+    flex-wrap: wrap;
+    height: 13vh;
+    width: 20vw;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $color-light;
+    font-weight: $font-light;
+    text-decoration: none;
+    font-size: 30px;
+    text-transform: uppercase;
+    transition: $transition;
+    font-family: $font-header;
+
+    p {
+      display: none;
+      opacity: 0;
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+    }
+
+    h5 {
+      margin: 0;
+      font-weight: $font-normal;
+    }
+  }
+
+  a:hover {
+    p {
+      text-align: center;
+      flex: 0 0 100%;
+      opacity: 1;
+      display: block;
+    }
+  }
+
+  a:first-child {
+    flex: 0 0 48%;
+    background-image: url(../images/pizza_img/pizza-1.jpg);
+  }
+
+  a:nth-child(2) {
+    flex: 0 0 48%;
+    background-image: url(../images/pizza_img/pizza-2.jpg);
+  }
+
+  a:nth-child(3) {
+    flex-direction: column;
+    flex: 0 0 98%;
+    background-color: $color-main;
+
+    p {
+      flex: 0 0 0;
+      opacity: 1;
+      display: block;
+    }
+  }
+}
+
+// opinions part
+
+.opinions {
+  @include flex (row, center, center);
+  margin: 50px 0;
+
+  .opinions-carousele {
+    overflow: hidden;
+  }
+
+  .carousele {
+    position: relative;
+    width: 400%;
+    margin: 0;
+    left: 0;
+    animation: 20s slider infinite;
+
+    .opinions-content {
+      float: left;
+      width: 25%;
+      padding-left: 30px;
+
+      p {
+        text-align: left;
+      }
+
+      h3 {
+        text-align: left;
+      }
+    }
+  }
+
+  img {
+    height: 25vh;
+    width: 25vh;
+  }
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+
+  20% {
+    left: 0;
+  }
+
+  35% {
+    left: -100%;
+  }
+
+  55% {
+    left: -100%;
+  }
+
+  70% {
+    left: -200%;
+  }
+
+  75% {
+    left: -200%;
+  }
+
+  100% {
+    left: -300%;
+  }
+}
+
+// Gallery
+
+.gallery {
+  overflow: hidden;
+  @include flex(row, center, space-between);
+  flex-wrap: wrap;
+  margin: 50px 0;
+
+  .gallery-photo {
+    position: relative;
+
+    .gallery-icon {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 46%;
+
+      .fas {
+        color: white;
+        font-size: 20px;
+      }
+
+      .fas:hover {
+        color: red;
+      }
+    }
+
+    img {
+      margin-top: 20px;
+      width: 25vh;
+      height: 25vh;
+      filter: brightness(100%);
+    }
+  }
+
+  .gallery-photo:hover {
+    .gallery-icon {
+      display: block;
+    }
+
+    img {
+      opacity: 0.7;
+      filter: brightness(30%);
+    }
+  }
+}
+
+// Footer
+
+.footer-link a{
+  color: $color-main;
+  font-family: $font-text;
+}
+
