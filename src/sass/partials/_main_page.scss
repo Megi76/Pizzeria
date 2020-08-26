@@ -73,6 +73,60 @@
   }
 }
 
+// opinions - glide
+
+.opinions-glide{
+  position: relative;
+  width: 100%;
+  padding: 50px 0;
+}
+
+.glide__slide {
+  @include flex(row, center, space-between);
+  flex-wrap: wrap;
+  height: 250px;
+  position: relative;
+}
+
+.opinion {
+  @include flex(row, center, space-between);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  img {
+    height: 25vh;
+    width: 25vh;
+    object-fit: cover;
+  }
+
+  .opinions-content {
+    max-width: 65%;
+    margin-left: 40px;
+  }
+
+}
+
+.glide__bullets {
+  text-align: center;
+
+  .glide__bullet {
+    padding: 5px;
+    border-radius: 50%;
+    border-color: $color-dark;
+    border: none;
+    margin: 0 6px;
+  }
+
+  button {
+    background-color: lightgray;
+  }
+
+  .glide__bullet--active {
+    background-color: $color-dark;
+  }
+}
+
 // opinions part
 
 .opinions {
