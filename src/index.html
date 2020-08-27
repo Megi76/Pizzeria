@@ -11,7 +11,6 @@
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
-  <link rel="stylesheet" href="vendor/glide.core.min.css">
   <link rel="stylesheet" href="vendor/owl.carousel.min.css">
   <link rel="stylesheet" href="vendor/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -199,7 +198,7 @@
           <div class="hour-picker range-slider">
               <div class="output"></div>
               <label class="booking-option-title">Pick a time</label>
-            <input type="range" name="hour" value="12" min="12" max="24" step="0.5">
+            <input class="slider" type="range" name="hour" value="12" min="12" max="24" step="0.5">
           </div>
         </div>
         <div class="floor-plan">
@@ -362,33 +361,31 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="vendor/range-slider.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
   <script src="vendor/jquery.min.js"></script>
   <script src="vendor/owl.carousel.min.js"></script>
-  <script>
-    setTimeout(function(){
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 1,
-        autoplay: true,
-        responsive:{
-          0:{
-            items:1
-          },
-          480:{
-            items:1
-          },
-          768:{
-            items:1
-          }
-        }
-      });
-    },
-    3000
-    );
-
-
-  </script>
+  <!-- <script>
+    // setTimeout(function(){
+    //   $('.owl-carousel').owlCarousel({
+    //     loop: true,
+    //     margin: 1,
+    //     autoplay: true,
+    //     responsive:{
+    //       0:{
+    //         items:1
+    //       },
+    //       480:{
+    //         items:1
+    //       },
+    //       768:{
+    //         items:1
+    //       }
+    //     }
+    //   });
+    // },
+    // 100
+    // );
+  </script> -->
+  
   <script src="js/app.js" type="module"></script>
 
 </body>

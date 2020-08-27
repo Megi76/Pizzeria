@@ -41,8 +41,8 @@ export const select = {
       wrapper: '.hour-picker',
       input: 'input[type="range"]',
       output: '.output',
+      slider: '.rangeSlider',
     },
-
   },
   cart: {
     productList: '.cart__order-summary',
@@ -94,6 +94,11 @@ export const classNames = {
   pages: {
     active: 'active',
   },
+  slider: {
+    red: '.red',
+    orange: '.orange',
+    green: '.green',
+  }
 };
 
 export const settings = {

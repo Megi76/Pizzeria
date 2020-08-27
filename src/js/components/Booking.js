@@ -1,12 +1,5 @@
-import {
-  templates,
-  select,
-  settings,
-  classNames
-} from '../settings.js';
-import {
-  utils
-} from '../utils.js';
+import {templates, select ,settings, classNames} from '../settings.js';
+import {utils} from '../utils.js';
 import AmountWidget from '../components/AmountWidget.js';
 import DatePicker from '../components/DatePicker.js';
 import HourPicker from '../components/HourPicker.js';
@@ -129,6 +122,7 @@ class Booking {
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
 
     let allAvailable = false;
+    let bookedArray = thisBooking.booked[thisBooking.date][thisBooking.hour];
 
     if (
       typeof thisBooking.booked[thisBooking.date] == 'undefined' ||
@@ -142,6 +136,25 @@ class Booking {
       if (!isNaN(tableId)) {
         tableId = parseInt(tableId);
       }
+
+      if(bookedArray.length === 0){
+        thisBooking.dom.rangeSlider.classList.add(classNames.booking.sliderGreen);
+        thisBooking.dom.rangeSlider.classList.remove(classNames.booking.sliderOrange);
+        thisBooking.dom.rangeSlider.classList.remove(classNames.booking.sliderRed);
+      } else if (bookedArray.length === 1){
+        thisBooking.dom.rangeSlider.classList.add(classNames.booking.sliderGreen);
+        thisBooking.dom.rangeSlider.classList.remove(classNames.booking.sliderOrange);
+        thisBooking.dom.rangeSlider.classList.remove(classNames.booking.sliderRed);
+      } else if (bookedArray.length === 2){
+        thisBooking.dom.rangeSlider.classList.remove(classNames.booking.sliderGreen);
+        thisBooking.dom.rangeSlider.classList.add(classNames.booking.sliderOrange);
+        thisBooking.dom.rangeSlider.classList.remove(classNames.booking.sliderRed);
+      } else if (bookedArray.length === 3){
+        thisBooking.dom.rangeSlider.classList.remove(classNames.booking.sliderGreen);
+        thisBooking.dom.rangeSlider.classList.remove(classNames.booking.sliderOrange);
+        thisBooking.dom.rangeSlider.classList.add(classNames.booking.sliderRed);
+      }
+
 
       if (
         !allAvailable &&
@@ -231,6 +244,7 @@ class Booking {
     thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(select.cart.phone);
     thisBooking.dom.formSubmit = thisBooking.dom.wrapper.querySelector(select.booking.formSubmit);
     thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(select.booking.starters);
+    thisBooking.dom.rangeSlider = document.querySelector('.range-slider');
   }
 
   initWidgets() {

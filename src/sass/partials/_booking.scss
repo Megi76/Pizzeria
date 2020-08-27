@@ -83,10 +83,28 @@
   }
 
   &__fill {
-    background: $color-success;
+    background: none;
     transition-timing-function: cubic-bezier(0, 1, 0, 1);
     transition: width 100ms;
     box-shadow: none;
+  }
+}
+
+.green {
+  .rangeSlider {
+    background: green;
+  }
+}
+
+.orange {
+  .rangeSlider {
+    background: orange;
+  }
+}
+
+.red {
+  .rangeSlider {
+    background: red;
   }
 }
 

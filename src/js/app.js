@@ -123,6 +123,27 @@ const app = {
 
   },
 
+  initCarousele: function(){
+    // eslint-disable-next-line no-undef
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 1,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      responsive:{
+        0:{
+          items:1
+        },
+        480:{
+          items:1
+        },
+        768:{
+          items:1
+        }
+      }
+    });
+  },
+
   init: function () {
     const thisApp = this;
 
@@ -131,6 +152,7 @@ const app = {
     thisApp.initCart();
     thisApp.initBooking();
     thisApp.initMain();
+    thisApp.initCarousele();
   },
 };
 
