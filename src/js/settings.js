@@ -87,6 +87,9 @@ export const classNames = {
   booking: {
     loading: 'loading',
     tableBooked: 'booked',
+    sliderGreen: 'green',
+    sliderOrange: 'orange',
+    sliderRed: 'red',
   },
   nav: {
     active: 'active',
@@ -94,11 +97,6 @@ export const classNames = {
   pages: {
     active: 'active',
   },
-  slider: {
-    red: '.red',
-    orange: '.orange',
-    green: '.green',
-  }
 };
 
 export const settings = {
@@ -122,7 +120,7 @@ export const settings = {
   },
 
   db: {
-    url: '//localhost:3131',
+    url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
     product: 'product',
     order: 'order',
     booking: 'booking',

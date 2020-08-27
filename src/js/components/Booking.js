@@ -123,6 +123,7 @@ class Booking {
 
     let allAvailable = false;
     let bookedArray = thisBooking.booked[thisBooking.date][thisBooking.hour];
+    console.log(bookedArray);
 
     if (
       typeof thisBooking.booked[thisBooking.date] == 'undefined' ||
@@ -137,7 +138,7 @@ class Booking {
         tableId = parseInt(tableId);
       }
 
-      if(bookedArray.length === 0){
+      if(bookedArray.lenght === 0){
         thisBooking.dom.rangeSlider.classList.add(classNames.booking.sliderGreen);
         thisBooking.dom.rangeSlider.classList.remove(classNames.booking.sliderOrange);
         thisBooking.dom.rangeSlider.classList.remove(classNames.booking.sliderRed);
