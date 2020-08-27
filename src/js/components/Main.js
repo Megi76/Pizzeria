@@ -6,6 +6,7 @@ class Main {
 
     thisMain.render(mainElement);
     this.linksToPages();
+
   }
 
   render(mainElement) {
