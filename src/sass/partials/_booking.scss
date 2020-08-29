@@ -90,23 +90,42 @@
   }
 }
 
-.green {
-  .rangeSlider {
-    background: green;
+.slider-color {
+  width: 102%;
+  height: 20px;
+  position: absolute;
+  bottom: -2px;
+
+  :first-child {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+
+  :nth-last-child(2) {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+
+  .available {
+    width: calc(100%/26);
+    height: 10px;
+    background: $color-success;
+    display: inline-block;
+  }
+
+  .busy2 {
+    background: $color-warning;
+  }
+
+  .busy3 {
+    background: $color-danger;
+  }
+
+  :last-child {
+    display: none;
   }
 }
 
-.orange {
-  .rangeSlider {
-    background: orange;
-  }
-}
-
-.red {
-  .rangeSlider {
-    background: red;
-  }
-}
 
 .flatpickr-day {
   &.disabled {
@@ -189,7 +208,10 @@
         background: $color-dark;
         opacity: 0.4;
       }
-
+    }
+    
+    &.selected {
+      background: $color-success;
     }
   }
 

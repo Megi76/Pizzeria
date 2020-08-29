@@ -68,6 +68,8 @@ export const select = {
     tables: '.floor-plan .table',
     formSubmit: '.booking-form',
     starters: '[name="starter"]',
+    rangeSlider: '.rangeSlider',
+
   },
   nav: {
     links: '.main-nav a',
@@ -87,9 +89,9 @@ export const classNames = {
   booking: {
     loading: 'loading',
     tableBooked: 'booked',
-    sliderGreen: 'green',
-    sliderOrange: 'orange',
-    sliderRed: 'red',
+    rangeSliderGreen: 'rangeSlider__green',
+    rangeSliderOrange: 'rangeSlider__orange',
+    rangeSliderRed: 'rangeSlider__red',
   },
   nav: {
     active: 'active',
