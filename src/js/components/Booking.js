@@ -180,7 +180,7 @@ class Booking {
     const rangeSlider = document.querySelector('.rangeSlider');
     rangeSlider.removeChild(rangeSlider.childNodes[0]);
 
-    for(let hour = 12; hour < 25; hour += .5) {
+    for(let hour = 12; hour <25.5; hour += .5) {
 
       const div = document.createElement('div');
 
